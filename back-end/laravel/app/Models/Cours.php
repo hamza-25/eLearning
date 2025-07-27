@@ -29,4 +29,9 @@ class Cours extends Model
         return $this->belongsToMany(User::class, 'enrolls', 'cours_id', 'student_id')->withTimestamps();
     }
 
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class, 'cours_id', 'id');
+    }
+
 }
